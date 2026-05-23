@@ -1,0 +1,17 @@
+{
+  "name": "deepseek-api-proxy",
+  "version": "1.0.0",
+  "description": "DeepSeek API proxy for Vercel deployment",
+  "main": "api/chat.js",
+  "scripts": {
+    "dev": "nodemon api/chat.js",
+    "dev:vervel": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "devDependencies": {
+    "vercel": "^54.4.0"
+  }
+}
