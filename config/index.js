@@ -1,8 +1,14 @@
+// 本地开发时从 .env.development 加载环境变量，生产环境由 Vercel 注入
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: ".env.development" });
+}
+
 /**
  * DeepSeek API 配置
  *
- * 所有敏感配置通过环境变量注入，部署时在 Vercel Dashboard 中设置：
- *   Settings → Environment Variables
+ * 所有敏感配置通过环境变量注入：
+ *   本地测试：复制 .env.example 为 .env 并填入真实值
+ *   生产部署：在 Vercel Dashboard → Settings → Environment Variables 中设置
  *
  * 环境变量列表：
  *   DEEPSEEK_API_KEY   — DeepSeek API Key（必填）
