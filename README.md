@@ -63,3 +63,5 @@ npx vercel --prod
   "error": "错误描述信息"
 }
 ```
+
+2. 推送到giuthub时自动部署
