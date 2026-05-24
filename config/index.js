@@ -35,7 +35,7 @@ module.exports = {
     process.env.ALLOWED_ORIGINS || "http://localhost:3000,http://localhost:5473"
   )
     .split(",")
-    .map((s) => s.trim()),
+    .map((s) => s.trim().replace(/\/+$/, "")),
 
   /** 前端调用时的鉴权 Token（空字符串表示不校验） */
   authToken: process.env.AUTH_TOKEN || "",

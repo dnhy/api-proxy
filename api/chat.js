@@ -9,7 +9,7 @@ app.use(express.json());
 
 // 处理 CORS 预检请求（仅允许白名单内的来源）
 app.use((req, res, next) => {
-  const origin = req.get("Origin") || "";
+  const origin = (req.get("Origin") || "").replace(/\/+$/, "");
   if (config.allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
