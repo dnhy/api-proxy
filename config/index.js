@@ -16,6 +16,7 @@ if (process.env.NODE_ENV !== "production") {
  *   DEEPSEEK_MODEL     — 模型名称（可选，默认 deepseek-chat）
  *   SYSTEM_PROMPT      — 系统提示词（可选）
  */
+
 module.exports = {
   /** DeepSeek API Key */
   apiKey: process.env.DEEPSEEK_API_KEY || "",
@@ -28,5 +29,20 @@ module.exports = {
 
   /** 系统提示词（可自定义角色） */
   systemPrompt: process.env.SYSTEM_PROMPT || "You are a helpful assistant.",
+
+  /** 允许跨域的前端来源，逗号分隔 */
+  allowedOrigins: (
+    process.env.ALLOWED_ORIGINS || "http://localhost:3000,http://localhost:5473"
+  )
+    .split(",")
+    .map((s) => s.trim()),
+
+  /** 前端调用时的鉴权 Token（空字符串表示不校验） */
+  authToken: process.env.AUTH_TOKEN || "",
+
+  /** HMAC 签名密钥（空字符串表示不校验签名） */
+  signSecret: process.env.SIGN_SECRET || "",
+
+  /** HMAC 签名有效期（毫秒），默认 5 分钟 */
+  signMaxAge: 5 * 60 * 1000,
 };
-              
